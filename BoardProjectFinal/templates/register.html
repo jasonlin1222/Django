@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django 開發班-會員註冊</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <!--最上面的Title -->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="text-center">
+                    <h1 class="text-primary">歡迎來到Django開發班 </h1>
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="text-center">
+                    <a href="/index/" class="btn btn-primary" style="margin-left:5px">回首頁</a>
+                </div>
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" ></div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6" >
+                <h1 class="text-primary" style="margin-top:20px;margin-left:100px">會員登入</h1>
+                <form action="." method="POST" name="register" style="margin-top:30px">
+                    {% csrf_token %}
+                    <table>
+                        <tr>
+                            <td><label for="Account">帳號:</label></td>
+                            <td><input type="text" name="Account"  ></td>
+                        </tr>
+                        <tr>
+                            <td><label for="password">密碼:</label></td>
+                            <td><input type="password" name="Password"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="passwordCheck">密碼確認:</label></td>
+                            <td><input type="password" name="PasswordCheck"></td>
+                        </tr><tr>
+                            <td><label for="email">電子信箱:</label></td>
+                            <td><input type="email" name="Email"></td>
+                        </tr><tr>
+                            <td><label for="Username">姓名:</label></td>
+                            <td><input type="text" name="Username"></td>
+                        </tr>
+                    </table>
+                    <input type="submit" class="btn btn-primary" style="margin-left:200px">
+                </form>
+                <h4 class="text-danger">{{ErrorMessage}}</h4>
+            </div>
+            <h3 style="color:red;">{{loginMessage}}</h3>
+            <div class="text-center col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                {% load staticfiles %}
+                <img src="{% static '/image/2.jpg' %}" style="margin-top:50px; height:70%; width:70%">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
